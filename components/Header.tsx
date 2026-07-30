@@ -41,8 +41,8 @@ export function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex w-[min(1200px,calc(100%-32px))] items-center justify-between gap-5 transition-all duration-500 ${
-          scrolled || open ? "min-h-16" : "min-h-24"
+        className={`mx-auto flex w-[min(1200px,calc(100%-24px))] items-center justify-between gap-3 transition-all duration-500 md:w-[min(1200px,calc(100%-32px))] md:gap-5 ${
+          scrolled || open ? "min-h-14 md:min-h-16" : "min-h-20 md:min-h-24"
         }`}
       >
         <a href="#inicio" aria-label={t.nav.home} className="shrink-0">
@@ -53,19 +53,19 @@ export function Header() {
             height={202}
             priority
             className={`brand-logo-soft h-auto object-contain transition-all duration-500 ${
-              scrolled || open ? "w-36 md:w-44" : "w-44 md:w-56"
+              scrolled || open ? "w-28 md:w-44" : "w-32 min-[390px]:w-36 md:w-56"
             }`}
           />
         </a>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1.5 md:hidden">
           <LanguageSwitcher language={language} setLanguage={setLanguage} label={t.nav.language} compact />
           <button
             type="button"
             aria-expanded={open}
             aria-controls="main-nav"
             onClick={() => setOpen((value) => !value)}
-            className="glass-line grid h-11 w-11 place-items-center rounded-md transition hover:border-fern/40 hover:bg-white/10"
+            className="glass-line grid h-10 w-10 place-items-center rounded-md transition hover:border-fern/40 hover:bg-white/10"
           >
             <span className="sr-only">{t.nav.menu}</span>
             <span className="grid gap-1.5">
@@ -78,7 +78,7 @@ export function Header() {
 
         <nav
           id="main-nav"
-          className={`absolute left-4 right-4 top-[calc(100%+10px)] grid gap-1 rounded-md border border-stone/10 bg-carbon/96 p-3 shadow-premium backdrop-blur-xl md:static md:flex md:items-center md:gap-5 md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
+          className={`absolute left-3 right-3 top-[calc(100%+8px)] grid gap-1 rounded-md border border-stone/10 bg-carbon/96 p-3 shadow-premium backdrop-blur-xl md:static md:flex md:items-center md:gap-5 md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
             open ? "grid" : "hidden md:flex"
           }`}
         >
@@ -115,7 +115,7 @@ function LanguageSwitcher({
   return (
     <div
       aria-label={label}
-      className={`glass-line flex items-center rounded-md p-1 ${compact ? "h-11" : ""}`}
+      className={`glass-line flex items-center rounded-md p-1 ${compact ? "h-10" : ""}`}
       role="group"
     >
       {languageItems.map((item) => {
@@ -127,7 +127,7 @@ function LanguageSwitcher({
             type="button"
             aria-pressed={active}
             onClick={() => setLanguage(item.code)}
-            className={`flex items-center gap-1.5 rounded-[4px] px-2.5 py-2 text-xs font-bold transition ${
+            className={`flex items-center gap-1 rounded-[4px] px-2 py-1.5 text-[0.68rem] font-bold transition md:gap-1.5 md:px-2.5 md:py-2 md:text-xs ${
               active
                 ? "bg-fern text-graphite shadow-[0_8px_24px_rgba(149,200,61,0.18)]"
                 : "text-stone/78 hover:bg-white/6 hover:text-[#f8f8f4] focus-visible:ring-2 focus-visible:ring-fern/70"
