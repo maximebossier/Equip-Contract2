@@ -1,8 +1,11 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
+import { FeatureIcon, type FeatureIconName } from "./FeatureIcon";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
+
+const serviceIcons: FeatureIconName[] = ["oem", "whiteLabel", "custom", "prototype", "series", "technical"];
 
 export function Services() {
   const { t } = useLanguage();
@@ -66,8 +69,8 @@ export function Services() {
                   <span className="text-xs font-bold uppercase tracking-[0.18em] text-fern">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="mt-4 text-2xl font-semibold text-[#f8f8f4] transition group-hover:text-fern">{service.title}</h3>
                 </div>
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-fern/25 bg-fern/10 text-sm font-bold text-fern transition group-hover:bg-fern group-hover:text-graphite">
-                  {service.title.slice(0, 1)}
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-fern/25 bg-fern/10 text-fern transition group-hover:bg-fern group-hover:text-graphite">
+                  <FeatureIcon name={serviceIcons[index] || "technical"} className="h-5 w-5" />
                 </span>
               </div>
               <p className="mt-5 text-sm leading-7 text-stone/68">{service.text}</p>

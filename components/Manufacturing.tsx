@@ -1,10 +1,11 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
+import { FeatureIcon, type FeatureIconName } from "./FeatureIcon";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
 
-const icons = ["L", "M", "T", "E", "A", "Q"];
+const icons: FeatureIconName[] = ["carpentry", "metal", "assembly", "finishes", "quality"];
 
 export function Manufacturing() {
   const { t } = useLanguage();
@@ -47,8 +48,8 @@ export function Manufacturing() {
             >
               <div className="flex items-center justify-between border-b border-stone/10 pb-7">
                 <h3 className="text-2xl font-semibold text-[#f8f8f4]">{title}</h3>
-                <span className="grid h-10 w-10 place-items-center rounded-md border border-fern/25 bg-fern/10 text-xs font-bold text-fern transition group-hover:scale-105 group-hover:bg-fern group-hover:text-graphite">
-                  {icons[index] || "•"}
+                <span className="grid h-10 w-10 place-items-center rounded-md border border-fern/25 bg-fern/10 text-fern transition group-hover:scale-105 group-hover:bg-fern group-hover:text-graphite">
+                  <FeatureIcon name={icons[index] || "quality"} className="h-5 w-5" />
                 </span>
               </div>
               <p className="mt-8 text-sm leading-7 text-stone/64">{text}</p>
