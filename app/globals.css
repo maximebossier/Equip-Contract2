@@ -137,3 +137,13 @@ main[id] {
     opacity: 0.72;
   }
 }
+
+@media (max-width: 767px) {
+  .section-shell {
+    width: min(100% - 24px, 1184px);
+  }
+
+  .premium-button {
+    min-height: 48px;
+  }
+}

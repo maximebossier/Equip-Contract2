@@ -22,16 +22,16 @@ export function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-120px" }}
       transition={{ duration: 0.75 }}
-      className="bg-[#151914] py-28 md:py-44"
+      className="bg-[#151914] py-20 md:py-44"
     >
-      <div className="section-shell grid gap-14 lg:grid-cols-[0.82fr_1fr]">
+      <div className="section-shell grid gap-10 md:gap-14 lg:grid-cols-[0.82fr_1fr]">
         <div>
           <SectionIntro
             eyebrow={t.contact.eyebrow}
             title={t.contact.title}
             text={t.contact.text}
           />
-          <dl className="mt-10 grid gap-5 text-sm text-stone/70">
+          <dl className="mt-8 grid gap-5 text-sm text-stone/70 md:mt-10">
             <div>
               <dt className="font-semibold text-fern">{t.contact.phone}</dt>
               <dd className="mt-1">
@@ -60,15 +60,15 @@ export function Contact() {
             </div>
           </dl>
 
-          <div className="mt-10 overflow-hidden rounded-md border border-fern/18 bg-[#10130f] shadow-premium">
-            <div className="flex items-center justify-between border-b border-fern/12 bg-[linear-gradient(135deg,rgba(149,200,61,0.13),rgba(17,20,17,0.92))] px-5 py-4">
-              <span className="text-sm font-semibold text-[#f8f8f4]">Equip Contract · {t.contact.location}</span>
+          <div className="mt-8 overflow-hidden rounded-md border border-fern/18 bg-[#10130f] shadow-premium md:mt-10">
+            <div className="flex items-center justify-between gap-4 border-b border-fern/12 bg-[linear-gradient(135deg,rgba(149,200,61,0.13),rgba(17,20,17,0.92))] px-4 py-4 md:px-5">
+              <span className="text-sm font-semibold leading-5 text-[#f8f8f4]">Equip Contract · {t.contact.location}</span>
               <span className="h-2.5 w-2.5 rounded-full bg-fern" />
             </div>
             <iframe
               title={mapTitle}
               src={mapSrc}
-              className="h-72 w-full border-0 bg-[#111411] brightness-[0.78] contrast-[1.1] hue-rotate-[58deg] invert-[0.88] saturate-[0.42] sepia-[0.18] md:h-80"
+              className="h-64 w-full border-0 bg-[#111411] brightness-[0.78] contrast-[1.1] hue-rotate-[58deg] invert-[0.88] saturate-[0.42] sepia-[0.18] md:h-80"
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
@@ -77,7 +77,7 @@ export function Contact() {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
               target="_blank"
               rel="noreferrer"
-              className="block border-t border-stone/10 px-5 py-4 text-sm font-semibold text-stone/62 transition hover:text-fern"
+              className="block border-t border-stone/10 px-4 py-4 text-sm font-semibold leading-6 text-stone/62 transition hover:text-fern md:px-5"
             >
               {address}
             </a>
@@ -85,13 +85,13 @@ export function Contact() {
         </div>
 
         <form
-          className="premium-card rounded-md p-6 md:p-8"
+          className="premium-card rounded-md p-5 md:p-8"
           onSubmit={(event) => {
             event.preventDefault();
             setSent(true);
           }}
         >
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
             <label htmlFor="contact-name" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.name}
               <input id="contact-name" name="name" autoComplete="name" className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
