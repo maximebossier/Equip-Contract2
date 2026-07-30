@@ -1,28 +1,12 @@
 "use client";
 
+import { useLanguage } from "./LanguageProvider";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
 
-const pillars = [
-  {
-    title: "Fabricación local",
-    text: "Producción y coordinación desde Barcelona para controlar materiales, plazos y acabados con cercanía real.",
-  },
-  {
-    title: "Calidad artesanal",
-    text: "Trabajo de carpintería, metal, tapicería y ensamblaje con criterio técnico y atención al detalle visible.",
-  },
-  {
-    title: "Flexibilidad productiva",
-    text: "Pedidos a medida, prototipos, series cortas y producciones amplias para partners con necesidades cambiantes.",
-  },
-  {
-    title: "Confidencialidad",
-    text: "Un modelo B2B preparado para trabajar bajo acuerdos discretos, sin exposición pública innecesaria.",
-  },
-];
-
 export function About() {
+  const { t } = useLanguage();
+
   return (
     <MotionSection
       id="empresa"
@@ -30,38 +14,65 @@ export function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-120px" }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#111411] py-24 md:py-36"
+      className="bg-[#10130f] py-28 md:py-44"
     >
       <div className="section-shell grid gap-14 lg:grid-cols-[0.92fr_1fr] lg:items-start">
         <SectionIntro
-          eyebrow="Sobre nosotros"
-          title="Industria, oficio y discreción al servicio del canal contract."
+          eyebrow={t.about.eyebrow}
+          title={t.about.title}
         />
-        <div>
+        <div className="border-l border-fern/20 pl-7">
           <p className="text-lg leading-9 text-stone/72">
-            Equip Contract fabrica mobiliario para distribuidores, estudios de interiorismo, empresas contract y
-            marcas que desarrollan proyectos horeca. No competimos con nuestros partners: producimos para que sus
-            propuestas lleguen al proyecto final con solvencia, precisión y continuidad.
+            {t.about.body[0]}
           </p>
           <p className="mt-6 text-lg leading-9 text-stone/72">
-            Nuestra fabricación propia combina conocimiento industrial, acabados cuidados y una respuesta flexible
-            para mesas, bases, tableros, estructuras metálicas y soluciones de mobiliario a medida.
+            {t.about.body[1]}
           </p>
         </div>
       </div>
 
-      <div className="section-shell mt-16 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-        {pillars.map((pillar, index) => (
+      <div className="section-shell mt-20 grid gap-4 md:grid-cols-12">
+        <div className="relative h-[320px] overflow-hidden rounded-md border border-stone/10 shadow-premium md:col-span-7 md:h-[520px]">
+          <img
+            src="/assets/catalog/equip-about-hospitality.webp"
+            alt="Espacio hospitality con mobiliario contract fabricado para uso profesional"
+            loading="lazy"
+            className="h-full w-full object-cover brightness-[0.82] contrast-110 saturate-[0.82]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-graphite/82 via-transparent to-transparent" />
+        </div>
+        <div className="grid gap-4 md:col-span-5">
+          <div className="relative h-[260px] overflow-hidden rounded-md border border-stone/10 shadow-premium md:h-[252px]">
+            <img
+              src="/assets/catalog/about-hospitality-furniture-crop.jpg"
+              alt="Interior hospitality contemporáneo con mesas y sillas contract"
+              loading="lazy"
+              className="h-full w-full object-cover object-center brightness-[0.78] contrast-110 saturate-[0.78]"
+            />
+          </div>
+          <div className="relative h-[260px] overflow-hidden rounded-md border border-stone/10 shadow-premium md:h-[252px]">
+            <img
+              src="/assets/catalog/project-restaurante.webp"
+              alt="Espacio restaurante con mobiliario contract integrado de forma discreta"
+              loading="lazy"
+              className="h-full w-full object-cover brightness-[0.78] contrast-110 saturate-[0.78]"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="section-shell mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {t.about.pillars.map((pillar, index) => (
           <MotionArticle
             key={pillar.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.06, duration: 0.55 }}
-            className="glass-line rounded-md p-6 transition duration-300 hover:-translate-y-1 hover:border-fern/38"
+            className="premium-card group rounded-md p-7 transition duration-500 hover:-translate-y-2 hover:border-fern/38 hover:bg-white/[0.055]"
           >
             <span className="text-sm font-semibold text-fern">0{index + 1}</span>
-            <h3 className="mt-10 text-xl font-semibold text-[#f8f8f4]">{pillar.title}</h3>
+            <h3 className="mt-12 text-xl font-semibold text-[#f8f8f4] transition group-hover:text-fern">{pillar.title}</h3>
             <p className="mt-4 text-sm leading-7 text-stone/62">{pillar.text}</p>
           </MotionArticle>
         ))}

@@ -1,32 +1,12 @@
 "use client";
 
+import { useLanguage } from "./LanguageProvider";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
 
-const projects = [
-  {
-    title: "Hotel Boutique",
-    text: "Mesas, bases y piezas auxiliares para zonas de desayuno, lounge y habitaciones con acabados coordinados.",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82",
-  },
-  {
-    title: "Restaurante Contemporáneo",
-    text: "Producción de mobiliario resistente para sala, barra y espacios de alto ritmo de servicio.",
-    image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=1200&q=82",
-  },
-  {
-    title: "Terraza Premium",
-    text: "Soluciones con estructura metálica, superficies técnicas y criterios de durabilidad exterior.",
-    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=82",
-  },
-  {
-    title: "Espacio Hospitality",
-    text: "Piezas a medida para áreas polivalentes, colectividades y proyectos contract de volumen.",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=82",
-  },
-];
-
 export function Projects() {
+  const { t } = useLanguage();
+
   return (
     <MotionSection
       id="proyectos"
@@ -34,42 +14,57 @@ export function Projects() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-120px" }}
       transition={{ duration: 0.7 }}
-      className="bg-graphite py-24 md:py-36"
+      className="bg-graphite py-28 md:py-44"
     >
       <div className="section-shell">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionIntro
-            eyebrow="Proyectos conceptuales"
-            title="Aplicaciones habituales, sin exposición de clientes."
+            eyebrow={t.projects.eyebrow}
+            title={t.projects.title}
           />
           <p className="max-w-md text-sm leading-7 text-stone/58">
-            Las imágenes son referencias visuales de contexto. El foco está en tipos de producción y espacios, no en
-            clientes identificables.
+            {t.projects.note}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2">
-          {projects.map((project, index) => (
+        <div className="mt-16 grid gap-5 md:grid-cols-2">
+          {t.projects.items.map((project, index) => (
             <MotionArticle
               key={project.title}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06, duration: 0.6 }}
-              className="group overflow-hidden rounded-md border border-stone/10 bg-[#171a16]"
+              className="group premium-card overflow-hidden rounded-md"
             >
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-80 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  style={{
+                    objectPosition: project.image.includes("project-hospitality-lounge-hotel")
+                      ? "50% 72%"
+                      : "50% 50%",
+                  }}
+                  className="h-full w-full object-cover brightness-[0.82] contrast-110 saturate-[0.82] transition duration-[1100ms] ease-out group-hover:scale-110 group-hover:brightness-75"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-graphite/78 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-graphite/88 via-graphite/10 to-transparent transition duration-700 group-hover:from-graphite/95" />
+                <div className="absolute inset-x-6 bottom-6 h-px origin-left scale-x-0 bg-fern/70 transition duration-700 group-hover:scale-x-100" />
               </div>
-              <div className="p-7">
-                <span className="eyebrow">Referencia {String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-2xl font-semibold text-[#f8f8f4]">{project.title}</h3>
+              <div className="p-8">
+                <span className="eyebrow">
+                  {t.projects.reference} {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 text-3xl font-semibold text-[#f8f8f4] transition group-hover:text-fern">{project.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-stone/62">{project.text}</p>
+                <div className="mt-6 grid gap-2">
+                  {project.metrics.map((metric) => (
+                    <span key={metric} className="rounded-md border border-stone/10 bg-white/[0.025] px-4 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-stone/68">
+                      {metric}
+                    </span>
+                  ))}
+                </div>
               </div>
             </MotionArticle>
           ))}

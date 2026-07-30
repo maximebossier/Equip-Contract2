@@ -1,0 +1,622 @@
+{
+  "es": {
+    "nav": {
+      "company": "Empresa",
+      "manufacturing": "Fabricación",
+      "services": "Servicios",
+      "projects": "Proyectos",
+      "contact": "Contacto",
+      "menu": "Abrir menú",
+      "home": "Equip Contract inicio",
+      "language": "Cambiar idioma"
+    },
+    "hero": {
+      "eyebrow": "Partner industrial B2B · Made in Barcelona",
+      "title": "Fabricación industrial de mobiliario contract para partners B2B",
+      "subtitle": "Producimos mesas, estructuras y mobiliario a medida para distribuidores, estudios y marcas que necesitan fiabilidad, confidencialidad y acabados consistentes.",
+      "primaryCta": "Solicitar capacidad",
+      "secondaryCta": "Ver proceso",
+      "cardEyebrow": "Producción confidencial",
+      "cardTitle": "Mobiliario que otros profesionales integran bajo su propia propuesta.",
+      "badges": [
+        "Barcelona",
+        "OEM",
+        "White-label",
+        "NDA"
+      ],
+      "metrics": [
+        {
+          "value": "+20",
+          "label": "años de oficio industrial"
+        },
+        {
+          "value": "B2B",
+          "label": "sin venta directa horeca"
+        },
+        {
+          "value": "100%",
+          "label": "producción confidencial"
+        }
+      ],
+      "image": "/assets/catalog/equip-hero-restaurant.webp",
+      "imageAlt": "Interior horeca equipado con mobiliario contract fabricado para espacios profesionales"
+    },
+    "about": {
+      "eyebrow": "Sobre nosotros",
+      "title": "Industria, oficio y discreción al servicio del canal contract.",
+      "body": [
+        "Equip Contract fabrica mobiliario para distribuidores, estudios de interiorismo, empresas contract y marcas que desarrollan proyectos horeca. No competimos con nuestros partners: producimos para que sus propuestas lleguen al proyecto final con solvencia, precisión y continuidad.",
+        "Nuestra fabricación propia combina conocimiento industrial, acabados cuidados y una respuesta flexible para mesas, bases, tableros, estructuras metálicas y soluciones de mobiliario a medida."
+      ],
+      "pillars": [
+        {
+          "title": "Fabricación local",
+          "text": "Producción y coordinación desde Barcelona para controlar materiales, plazos y acabados con cercanía real."
+        },
+        {
+          "title": "Calidad artesanal",
+          "text": "Trabajo de carpintería, metal y ensamblaje con criterio técnico y atención al detalle visible."
+        },
+        {
+          "title": "Flexibilidad productiva",
+          "text": "Pedidos a medida, prototipos, series cortas y producciones amplias para partners con necesidades cambiantes."
+        },
+        {
+          "title": "Confidencialidad",
+          "text": "Un modelo B2B preparado para trabajar bajo acuerdos discretos, sin exposición pública innecesaria."
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Confianza industrial",
+      "title": "Una estructura preparada para fabricar con discreción, repetibilidad y control.",
+      "text": "Cada colaboración se gestiona como una extensión de tu equipo: documentación clara, validaciones técnicas, coordinación local y trazabilidad antes de entregar.",
+      "capabilitiesTitle": "Capacidades industriales",
+      "stats": [
+        {
+          "value": "Barcelona",
+          "label": "fabricación y coordinación local"
+        },
+        {
+          "value": "OEM",
+          "label": "producción para otras marcas"
+        },
+        {
+          "value": "NDA",
+          "label": "acuerdos de confidencialidad"
+        },
+        {
+          "value": "Series",
+          "label": "prototipos, series cortas y volumen"
+        }
+      ],
+      "capabilities": [
+        "Carpintería técnica y mecanizados",
+        "Metalistería para bases y estructuras",
+        "Acabados, lacados y barnices contract",
+        "Ensamblaje y embalaje para instalación",
+        "Logística coordinada por proyecto",
+        "Certificaciones: marcador pendiente de validar"
+      ]
+    },
+    "manufacturing": {
+      "eyebrow": "Fabricación",
+      "title": "Capacidad productiva para piezas a medida y series contract.",
+      "text": "Un proceso coordinado entre taller, oficina técnica y producción para convertir planos, muestras o requisitos de marca en mobiliario fabricable, repetible y bien acabado.",
+      "image": "/assets/catalog/equip-nave-cartel-realista.webp",
+      "imageAlt": "Nave industrial de Equip Contract en Barcelona con rótulo de fachada",
+      "areas": [
+        [
+          "Carpintería",
+          "Tableros, cantos, mecanizados, chapas, laminados y soluciones de madera para uso intensivo."
+        ],
+        [
+          "Metalistería",
+          "Bases, pies, bastidores y estructuras metálicas con acabados preparados para contract."
+        ],
+        [
+          "Ensamblaje",
+          "Integración de piezas, herrajes y componentes para entregar mobiliario listo para instalación."
+        ],
+        [
+          "Acabados",
+          "Barnices, lacados, texturas y tonos adaptados a especificaciones técnicas o de marca."
+        ],
+        [
+          "Control de calidad",
+          "Revisión de estabilidad, resistencia, acabado y coherencia de serie antes de salida."
+        ]
+      ]
+    },
+    "process": {
+      "eyebrow": "Proceso",
+      "title": "Del briefing técnico a la entrega, con puntos de control claros.",
+      "text": "Un flujo pensado para reducir incertidumbre, proteger la confidencialidad y mantener la calidad durante toda la producción.",
+      "steps": [
+        {
+          "title": "Recepción del proyecto",
+          "text": "Revisamos planos, referencias, cantidades, materiales, plazos y condiciones NDA."
+        },
+        {
+          "title": "Ingeniería",
+          "text": "Aterrizamos medidas, uniones, tolerancias, acabados y viabilidad productiva."
+        },
+        {
+          "title": "Prototipado",
+          "text": "Validamos muestras, detalles críticos o primeras unidades cuando el proyecto lo requiere."
+        },
+        {
+          "title": "Producción",
+          "text": "Fabricación coordinada por fases para asegurar repetibilidad y continuidad."
+        },
+        {
+          "title": "Control de calidad",
+          "text": "Comprobación de estabilidad, acabado, embalaje y coherencia de serie antes de salida."
+        },
+        {
+          "title": "Entrega",
+          "text": "Preparación logística y documentación final para que el partner pueda instalar o distribuir."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Servicios",
+      "title": "Fabricamos para quien necesita producir sin perder control.",
+      "text": "Trabajamos como extensión industrial de distribuidores, estudios y marcas, ajustándonos al nivel de visibilidad, documentación y acabado que requiere cada colaboración.",
+      "items": [
+        {
+          "title": "Fabricación OEM",
+          "text": "Producción industrial bajo especificaciones de marca, con control técnico y continuidad.",
+          "benefit": "Tu propuesta llega al cliente final sin perder identidad."
+        },
+        {
+          "title": "Producción white-label",
+          "text": "Mobiliario fabricado sin exposición de nuestra marca, preparado para integrarse en tu canal.",
+          "benefit": "Confidencialidad comercial desde el primer contacto."
+        },
+        {
+          "title": "Mobiliario a medida",
+          "text": "Mesas, bases, tableros, estructuras y piezas especiales adaptadas a proyecto.",
+          "benefit": "Soluciones fabricables, repetibles y listas para contract."
+        },
+        {
+          "title": "Prototipado",
+          "text": "Primeras unidades, muestras de acabado y ajustes antes de lanzar producción.",
+          "benefit": "Menos riesgo antes de invertir en volumen."
+        },
+        {
+          "title": "Series pequeñas y volumen",
+          "text": "Respuesta flexible para pedidos puntuales, series cortas o producciones amplias.",
+          "benefit": "Capacidad ajustada al momento del partner."
+        },
+        {
+          "title": "Colaboración técnica",
+          "text": "Apoyo para convertir ideas, planos o requisitos de marca en soluciones producibles.",
+          "benefit": "Mejor coste, plazo y estabilidad desde ingeniería."
+        }
+      ]
+    },
+    "projects": {
+      "eyebrow": "Proyectos conceptuales",
+      "title": "Aplicaciones habituales, sin exposición de clientes.",
+      "note": "Las imágenes son referencias visuales de contexto. El foco está en tipos de producción y espacios, no en clientes identificables.",
+      "reference": "Referencia",
+      "items": [
+        {
+          "title": "Hotel boutique",
+          "text": "Mesas, bases y piezas auxiliares para zonas de desayuno, lounge y habitaciones con acabados coordinados.",
+          "metrics": ["Volumen: 40-120 piezas", "Plazo: 6-10 semanas", "Alcance: fabricación y embalaje"],
+          "image": "/assets/catalog/project-hotel-boutique-lounge.jpg"
+        },
+        {
+          "title": "Habitaciones de hotel",
+          "text": "Piezas auxiliares, mesas compactas, soportes y soluciones coordinadas para habitaciones, suites y zonas privadas.",
+          "metrics": ["Volumen: por programa", "Plazo: 6-12 semanas", "Alcance: mobiliario auxiliar"],
+          "image": "/assets/catalog/project-hotel-room.jpg"
+        },
+        {
+          "title": "Restaurante contemporáneo",
+          "text": "Producción de mobiliario resistente para sala, barra y espacios de alto ritmo de servicio.",
+          "metrics": ["Volumen: serie media", "Plazo: por fases", "Alcance: bases, tableros y acabados"],
+          "image": "/assets/catalog/project-restaurante.webp"
+        },
+        {
+          "title": "Terraza premium",
+          "text": "Soluciones con estructura metálica, superficies técnicas y criterios de durabilidad exterior.",
+          "metrics": ["Volumen: modular", "Plazo: planificación previa", "Alcance: metal y superficies técnicas"],
+          "image": "/assets/catalog/project-premium-terrace.jpg"
+        },
+        {
+          "title": "Espacio hospitality",
+          "text": "Piezas a medida para áreas polivalentes, colectividades y proyectos contract de volumen.",
+          "metrics": ["Volumen: escalable", "Plazo: según ingeniería", "Alcance: producción white-label"],
+          "image": "/assets/catalog/project-hospitality-lounge-hotel.jpg"
+        }
+      ]
+    },
+    "confidentiality": {
+      "eyebrow": "Confidencialidad",
+      "title": "Muchos de nuestros proyectos permanecen confidenciales debido a acuerdos con clientes y partners.",
+      "text": "Esa discreción forma parte del servicio. Fabricamos para integrarnos en cadenas de valor donde la marca, la prescripción o la relación comercial pertenecen al partner.",
+      "badges": [
+        "Acuerdos NDA",
+        "Producción sin marca visible",
+        "Documentación técnica privada"
+      ]
+    },
+    "customSections": [
+      {
+        "eyebrow": "Nuevo apartado",
+        "title": "Apartado editable",
+        "subtitle": "Usa este bloque para añadir nuevas áreas de contenido sin tocar código.",
+        "items": [
+          {
+            "title": "Punto editable",
+            "text": "Añade, elimina o modifica puntos desde el panel privado."
+          }
+        ]
+      }
+    ],
+    "catalog": {
+      "eyebrow": "Catálogo técnico",
+      "title": "Descarga el catálogo profesional de fabricación contract.",
+      "subtitle": "Un recurso para distribuidores, estudios y partners que necesitan revisar capacidades, acabados y líneas de producción.",
+      "button": "Descargar catálogo",
+      "unavailable": "Catálogo próximamente",
+      "file": "/catalogo-equip-contract.pdf"
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Hablemos de fabricación, capacidades y próximos proyectos.",
+      "text": "Cuéntanos el tipo de mobiliario, cantidades aproximadas, materiales, acabados y nivel de confidencialidad requerido.",
+      "phone": "Teléfono",
+      "email": "Email",
+      "location": "Barcelona",
+      "address": "Carrer Anoia, 3, Nave 5, 08130 Santa Perpètua de Mogoda, Barcelona",
+      "fields": {
+        "name": "Nombre",
+        "company": "Empresa",
+        "email": "Email",
+        "phoneNumber": "Teléfono",
+        "country": "País",
+        "quantity": "Cantidad estimada",
+        "date": "Fecha prevista",
+        "files": "Planos, PDF o CAD",
+        "projectType": "Tipo de proyecto",
+        "message": "Mensaje",
+        "submit": "Enviar consulta"
+      },
+      "options": [
+        "Producción OEM / white-label",
+        "Mobiliario a medida",
+        "Prototipado",
+        "Serie contract"
+      ],
+      "sentMessage": {
+        "title": "Gracias por escribirnos.",
+        "text": "Somos Costa Design, una empresa nueva con muchas ganas de construir relaciones cercanas y duraderas. Por eso cuidaremos tu proyecto con atención personal y podremos ofrecerte un precio ajustado, honesto y competitivo en esta primera etapa."
+      },
+      "trust": [
+        "Respuesta directa y cercana",
+        "Revisión confidencial de documentación",
+        "Precio ajustado en esta primera etapa de Costa Design"
+      ],
+      "fileHint": "Puedes adjuntar planos, mediciones, PDFs o referencias. No se enviarán fuera de este entorno de prueba."
+    },
+    "footer": {
+      "copyright": "Equip Contract © 2026",
+      "privateAccess": "Acceso privado",
+      "backTop": "Volver arriba"
+    }
+  },
+  "en": {
+    "nav": {
+      "company": "Company",
+      "manufacturing": "Manufacturing",
+      "services": "Services",
+      "projects": "Projects",
+      "contact": "Contact",
+      "menu": "Open menu",
+      "home": "Equip Contract home",
+      "language": "Change language"
+    },
+    "hero": {
+      "eyebrow": "B2B industrial partner · Made in Barcelona",
+      "title": "Industrial contract furniture manufacturing for B2B partners",
+      "subtitle": "We produce tables, structures and bespoke furniture for distributors, studios and brands that need reliability, confidentiality and consistent finishes.",
+      "primaryCta": "Request capacity",
+      "secondaryCta": "See process",
+      "cardEyebrow": "Confidential production",
+      "cardTitle": "Furniture that other professionals integrate under their own proposal.",
+      "badges": [
+        "Barcelona",
+        "OEM",
+        "White-label",
+        "NDA"
+      ],
+      "metrics": [
+        {
+          "value": "+20",
+          "label": "years of industrial craft"
+        },
+        {
+          "value": "B2B",
+          "label": "no direct horeca sales"
+        },
+        {
+          "value": "100%",
+          "label": "confidential production"
+        }
+      ],
+      "image": "/assets/catalog/equip-hero-restaurant.webp",
+      "imageAlt": "Horeca interior furnished with contract furniture for professional spaces"
+    },
+    "about": {
+      "eyebrow": "About us",
+      "title": "Industry, craft and discretion serving the contract channel.",
+      "body": [
+        "Equip Contract manufactures furniture for distributors, interior design studios, contract companies and brands developing horeca projects. We do not compete with our partners: we produce so their proposals reach the final project with reliability, precision and continuity.",
+        "Our in-house manufacturing combines industrial know-how, carefully finished details and a flexible response for tables, bases, tops, metal structures and bespoke furniture solutions."
+      ],
+      "pillars": [
+        {
+          "title": "Local manufacturing",
+          "text": "Production and coordination from Barcelona to control materials, timings and finishes with real proximity."
+        },
+        {
+          "title": "Craft quality",
+          "text": "Wood, metal and assembly work with technical criteria and visible attention to detail."
+        },
+        {
+          "title": "Production flexibility",
+          "text": "Bespoke orders, prototypes, short runs and larger productions for partners with changing needs."
+        },
+        {
+          "title": "Confidentiality",
+          "text": "A B2B model prepared to work under discreet agreements, without unnecessary public exposure."
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Industrial trust",
+      "title": "A structure ready to manufacture with discretion, repeatability and control.",
+      "text": "Every collaboration is managed as an extension of your team: clear documentation, technical validation, local coordination and traceability before delivery.",
+      "capabilitiesTitle": "Industrial capabilities",
+      "stats": [
+        {
+          "value": "Barcelona",
+          "label": "local manufacturing and coordination"
+        },
+        {
+          "value": "OEM",
+          "label": "production for other brands"
+        },
+        {
+          "value": "NDA",
+          "label": "confidentiality agreements"
+        },
+        {
+          "value": "Series",
+          "label": "prototypes, short runs and volume"
+        }
+      ],
+      "capabilities": [
+        "Technical woodworking and machining",
+        "Metalwork for bases and structures",
+        "Contract finishes, lacquers and varnishes",
+        "Assembly and packaging for installation",
+        "Project-based logistics coordination",
+        "Certifications: placeholder pending validation"
+      ]
+    },
+    "manufacturing": {
+      "eyebrow": "Manufacturing",
+      "title": "Production capacity for bespoke pieces and contract series.",
+      "text": "A coordinated process between workshop, technical office and production to transform plans, samples or brand requirements into manufacturable, repeatable and well-finished furniture.",
+      "image": "/assets/catalog/equip-nave-cartel-realista.webp",
+      "imageAlt": "Equip Contract industrial warehouse in Barcelona with facade signage",
+      "areas": [
+        [
+          "Woodworking",
+          "Boards, edges, machining, veneers, laminates and wood solutions for intensive use."
+        ],
+        [
+          "Metalwork",
+          "Bases, legs, frames and metal structures with finishes prepared for contract use."
+        ],
+        [
+          "Assembly",
+          "Integration of pieces, fittings and components to deliver furniture ready for installation."
+        ],
+        [
+          "Finishes",
+          "Varnishes, lacquers, textures and tones adapted to technical or brand specifications."
+        ],
+        [
+          "Quality control",
+          "Review of stability, resistance, finish and series consistency before dispatch."
+        ]
+      ]
+    },
+    "process": {
+      "eyebrow": "Process",
+      "title": "From technical briefing to delivery, with clear control points.",
+      "text": "A workflow designed to reduce uncertainty, protect confidentiality and maintain quality throughout production.",
+      "steps": [
+        {
+          "title": "Project reception",
+          "text": "We review plans, references, quantities, materials, timings and NDA conditions."
+        },
+        {
+          "title": "Engineering",
+          "text": "We define dimensions, joints, tolerances, finishes and production feasibility."
+        },
+        {
+          "title": "Prototyping",
+          "text": "We validate samples, critical details or first units when the project requires it."
+        },
+        {
+          "title": "Production",
+          "text": "Manufacturing coordinated by phases to ensure repeatability and continuity."
+        },
+        {
+          "title": "Quality control",
+          "text": "Stability, finish, packaging and series consistency checks before dispatch."
+        },
+        {
+          "title": "Delivery",
+          "text": "Logistics preparation and final documentation so the partner can install or distribute."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "We manufacture for those who need production without losing control.",
+      "text": "We work as the industrial extension of distributors, studios and brands, adapting to the level of visibility, documentation and finish required by each collaboration.",
+      "items": [
+        {
+          "title": "OEM manufacturing",
+          "text": "Industrial production under brand specifications, with technical control and continuity.",
+          "benefit": "Your proposal reaches the end client without losing identity."
+        },
+        {
+          "title": "White-label production",
+          "text": "Furniture manufactured without exposure of our brand, ready to integrate into your channel.",
+          "benefit": "Commercial confidentiality from the first contact."
+        },
+        {
+          "title": "Bespoke furniture",
+          "text": "Tables, bases, tops, structures and special pieces adapted to each project.",
+          "benefit": "Manufacturable, repeatable solutions ready for contract use."
+        },
+        {
+          "title": "Prototyping",
+          "text": "First units, finish samples and adjustments before launching production.",
+          "benefit": "Lower risk before investing in volume."
+        },
+        {
+          "title": "Small runs and volume",
+          "text": "Flexible response for one-off orders, short series or larger productions.",
+          "benefit": "Capacity adapted to each partner's moment."
+        },
+        {
+          "title": "Technical collaboration",
+          "text": "Support to turn ideas, plans or brand requirements into producible solutions.",
+          "benefit": "Better cost, timing and stability from engineering."
+        }
+      ]
+    },
+    "projects": {
+      "eyebrow": "Concept projects",
+      "title": "Common applications, without client exposure.",
+      "note": "Images are visual context references. The focus is on production types and spaces, not identifiable clients.",
+      "reference": "Reference",
+      "items": [
+        {
+          "title": "Boutique Hotel",
+          "text": "Tables, bases and auxiliary pieces for breakfast areas, lounges and rooms with coordinated finishes.",
+          "metrics": ["Volume: 40-120 pieces", "Timing: 6-10 weeks", "Scope: manufacturing and packaging"],
+          "image": "/assets/catalog/project-hotel-boutique-lounge.jpg"
+        },
+        {
+          "title": "Hotel Rooms",
+          "text": "Auxiliary pieces, compact tables, supports and coordinated solutions for rooms, suites and private areas.",
+          "metrics": ["Volume: by programme", "Timing: 6-12 weeks", "Scope: auxiliary furniture"],
+          "image": "/assets/catalog/project-hotel-room.jpg"
+        },
+        {
+          "title": "Contemporary Restaurant",
+          "text": "Durable furniture production for dining rooms, bars and high-paced service spaces.",
+          "metrics": ["Volume: medium series", "Timing: phased", "Scope: bases, tops and finishes"],
+          "image": "/assets/catalog/project-restaurante.webp"
+        },
+        {
+          "title": "Premium Terrace",
+          "text": "Solutions with metal structure, technical surfaces and outdoor durability criteria.",
+          "metrics": ["Volume: modular", "Timing: planned ahead", "Scope: metal and technical surfaces"],
+          "image": "/assets/catalog/project-premium-terrace.jpg"
+        },
+        {
+          "title": "Hospitality Space",
+          "text": "Bespoke pieces for multi-purpose areas, communities and volume contract projects.",
+          "metrics": ["Volume: scalable", "Timing: engineering-based", "Scope: white-label production"],
+          "image": "/assets/catalog/project-hospitality-lounge-hotel.jpg"
+        }
+      ]
+    },
+    "confidentiality": {
+      "eyebrow": "Confidentiality",
+      "title": "Many of our projects remain confidential due to agreements with clients and partners.",
+      "text": "That discretion is part of the service. We manufacture to integrate into value chains where the brand, specification or commercial relationship belongs to the partner.",
+      "badges": [
+        "NDA agreements",
+        "Production without visible branding",
+        "Private technical documentation"
+      ]
+    },
+    "customSections": [
+      {
+        "eyebrow": "New section",
+        "title": "Editable section",
+        "subtitle": "Use this block to add new content areas without touching code.",
+        "items": [
+          {
+            "title": "Editable point",
+            "text": "Add, remove or edit points from the private panel."
+          }
+        ]
+      }
+    ],
+    "catalog": {
+      "eyebrow": "Technical catalogue",
+      "title": "Download the professional contract manufacturing catalogue.",
+      "subtitle": "A resource for distributors, studios and partners who need to review capabilities, finishes and production lines.",
+      "button": "Download catalogue",
+      "unavailable": "Catalogue coming soon",
+      "file": "/catalogo-equip-contract.pdf"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about manufacturing, capacity and upcoming projects.",
+      "text": "Tell us the furniture type, approximate quantities, materials, finishes and required confidentiality level.",
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Barcelona",
+      "address": "Carrer Anoia, 3, Nave 5, 08130 Santa Perpètua de Mogoda, Barcelona",
+      "fields": {
+        "name": "Name",
+        "company": "Company",
+        "email": "Email",
+        "phoneNumber": "Phone",
+        "country": "Country",
+        "quantity": "Estimated quantity",
+        "date": "Expected date",
+        "files": "Plans, PDF or CAD",
+        "projectType": "Project type",
+        "message": "Message",
+        "submit": "Send enquiry"
+      },
+      "options": [
+        "OEM / white-label production",
+        "Bespoke furniture",
+        "Prototyping",
+        "Contract series"
+      ],
+      "sentMessage": {
+        "title": "Thank you for getting in touch.",
+        "text": "We are Costa Design, a new company focused on building close and long-lasting relationships. That is why we will handle your project with personal care and offer an adjusted, honest and competitive price at this first stage."
+      },
+      "trust": [
+        "Direct and personal response",
+        "Confidential review of documentation",
+        "Adjusted pricing at this first stage of Costa Design"
+      ],
+      "fileHint": "You can attach plans, measurements, PDFs or references. They will not be sent outside this test environment."
+    },
+    "footer": {
+      "copyright": "Equip Contract © 2026",
+      "privateAccess": "Private access",
+      "backTop": "Back to top"
+    }
+  }
+}
