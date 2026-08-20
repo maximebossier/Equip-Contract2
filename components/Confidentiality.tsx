@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { MotionSection } from "./Motion";
 
@@ -38,10 +39,11 @@ export function Confidentiality() {
               </div>
             </div>
             <div className="relative h-56 overflow-hidden rounded-md border border-stone/10 shadow-premium min-[390px]:h-64 md:h-80">
-              <img
+              <Image
                 src="/assets/catalog/equip-confidential-nda-documents.png"
                 alt="Profesionales revisando documentación confidencial y acuerdos NDA"
-                loading="lazy"
+                fill
+                sizes="(min-width: 1024px) 36vw, 100vw"
                 className="h-full w-full object-cover brightness-[0.92] contrast-105 saturate-[0.86]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-graphite/42 via-transparent to-transparent" />

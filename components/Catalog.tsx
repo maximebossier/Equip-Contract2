@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import { MotionSection } from "./Motion";
 
@@ -17,11 +16,6 @@ function getVisitorId() {
 
 export function Catalog() {
   const { t } = useLanguage();
-  const [visitorId, setVisitorId] = useState("unknown");
-
-  useEffect(() => {
-    setVisitorId(getVisitorId());
-  }, []);
 
   return (
     <MotionSection
@@ -40,7 +34,10 @@ export function Catalog() {
             <p className="mt-4 text-base leading-7 text-stone/66 md:mt-5 md:text-lg md:leading-8">{t.catalog.subtitle}</p>
           </div>
           <a
-            href={`/api/catalog/download?visitorId=${encodeURIComponent(visitorId)}`}
+            href="/api/catalog/download"
+            onClick={(event) => {
+              event.currentTarget.href = `/api/catalog/download?visitorId=${encodeURIComponent(getVisitorId())}`;
+            }}
             className="premium-button inline-flex items-center justify-center rounded-md bg-fern px-5 py-3.5 text-sm font-bold text-graphite hover:bg-[#a9dd52] md:px-6 md:py-4"
           >
             {t.catalog.button}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
@@ -38,10 +39,11 @@ export function Projects() {
               className="group premium-card overflow-hidden rounded-md"
             >
               <div className="relative h-56 overflow-hidden min-[390px]:h-64 sm:h-72 md:h-80">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  loading="lazy"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   style={{
                     objectPosition: project.image.includes("project-hospitality-lounge-hotel")
                       ? "50% 72%"

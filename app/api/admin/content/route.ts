@@ -1,27 +1,62 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSiteContent, saveSiteContent } from "@/lib/siteContent";
-import type { SiteContent } from "@/lib/siteContent.shared";
+import { sanitizeSiteContent } from "@/lib/siteContent.shared";
+import {
+  assertValidOrigin,
+  checkRateLimit,
+  getClientIp,
+  hasAllowedContentLength,
+  jsonError,
+  MAX_ADMIN_BODY_BYTES,
+  verifyAdminRequest,
+} from "@/lib/security";
 
-function isAuthorized(request: NextRequest) {
-  const configuredPassword = process.env.ADMIN_PASSWORD || "equipcontract-admin";
-  return request.headers.get("x-admin-password") === configuredPassword;
+function guardAdminRequest(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rate = checkRateLimit(`admin:${ip}`, 20, 15 * 60 * 1000);
+
+  if (!rate.allowed) {
+    return jsonError("Too many attempts.", 429, rate.retryAfter);
+  }
+
+  if (!assertValidOrigin(request)) {
+    return jsonError("Invalid origin.", 403);
+  }
+
+  const auth = verifyAdminRequest(request);
+
+  if (!auth.ok) {
+    return jsonError(auth.message, auth.status);
+  }
+
+  return null;
 }
 
 export async function GET(request: NextRequest) {
-  if (!isAuthorized(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const blocked = guardAdminRequest(request);
+  if (blocked) return blocked;
 
-  return NextResponse.json(await getSiteContent());
+  return NextResponse.json(await getSiteContent(), {
+    headers: { "Cache-Control": "no-store" },
+  });
 }
 
 export async function PUT(request: NextRequest) {
-  if (!isAuthorized(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const blocked = guardAdminRequest(request);
+  if (blocked) return blocked;
+
+  if (!hasAllowedContentLength(request, MAX_ADMIN_BODY_BYTES)) {
+    return jsonError("Request body too large.", 413);
   }
 
-  const content = (await request.json()) as SiteContent;
+  const body = await request.json().catch(() => null);
+  const content = sanitizeSiteContent(body);
+
+  if (!content) {
+    return jsonError("Invalid content payload.", 400);
+  }
+
   await saveSiteContent(content);
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true }, { headers: { "Cache-Control": "no-store" } });
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { FeatureIcon, type FeatureIconName } from "./FeatureIcon";
 import { MotionArticle, MotionSection } from "./Motion";
@@ -29,10 +30,11 @@ export function Services() {
 
           <div className="mt-7 overflow-hidden rounded-md border border-stone/12 bg-[#0f130f] shadow-premium md:mt-12">
             <div className="relative h-56 min-[390px]:h-60 md:h-72">
-              <img
+              <Image
                 src="/assets/catalog/services-industrial-factory-floor.jpg"
                 alt="Interior de fábrica industrial con maquinaria para producción contract B2B"
-                loading="lazy"
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
                 className="h-full w-full object-cover brightness-[0.78] contrast-110 saturate-[0.78]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,14,12,0.02),rgba(11,14,12,0.78)),radial-gradient(circle_at_72%_18%,rgba(149,200,61,0.22),transparent_16rem)]" />

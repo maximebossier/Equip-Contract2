@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { MotionDiv, MotionSection } from "./Motion";
 
@@ -8,10 +9,12 @@ export function Hero() {
 
   return (
     <MotionSection id="inicio" className="relative isolate min-h-[100svh] overflow-hidden">
-      <img
+      <Image
         src={t.hero.image}
         alt={t.hero.imageAlt}
-        fetchPriority="high"
+        priority
+        fill
+        sizes="100vw"
         className="absolute inset-0 h-full w-full object-cover object-[58%_50%] [animation:hero-zoom_18s_ease-in-out_infinite_alternate] md:object-center"
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(149,200,61,0.14),transparent_18rem),linear-gradient(90deg,rgba(5,8,7,0.97),rgba(12,15,13,0.86)_58%,rgba(12,15,13,0.48)),linear-gradient(0deg,rgba(7,10,8,0.9),rgba(7,10,8,0.18)_52%,rgba(7,10,8,0.68))] md:bg-[radial-gradient(circle_at_72%_18%,rgba(149,200,61,0.18),transparent_28rem),linear-gradient(90deg,rgba(5,8,7,0.96),rgba(12,15,13,0.82)_42%,rgba(12,15,13,0.32)),linear-gradient(0deg,rgba(7,10,8,0.82),rgba(7,10,8,0.08)_48%,rgba(7,10,8,0.58))]" />

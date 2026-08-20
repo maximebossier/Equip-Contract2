@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { FeatureIcon, type FeatureIconName } from "./FeatureIcon";
 import { MotionArticle, MotionSection } from "./Motion";
@@ -27,10 +28,11 @@ export function Manufacturing() {
             text={t.manufacturing.text}
           />
           <div className="relative h-[220px] overflow-hidden rounded-md shadow-premium min-[390px]:h-[250px] sm:h-[340px] md:h-[390px]">
-            <img
+            <Image
               src={t.manufacturing.image}
               alt={t.manufacturing.imageAlt}
-              loading="lazy"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-full w-full object-cover brightness-90 contrast-110"
             />
           </div>

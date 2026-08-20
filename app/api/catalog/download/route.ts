@@ -2,25 +2,40 @@ import fs from "fs/promises";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 import { addAnalyticsEvent } from "@/lib/analytics";
+import { checkRateLimit, getClientIp, jsonError, sanitizeText, sanitizeUrl, sanitizeVisitorId } from "@/lib/security";
 import { getSiteContent } from "@/lib/siteContent";
 
 export async function GET(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rate = checkRateLimit(`catalog:${ip}`, 20, 60 * 1000);
+
+  if (!rate.allowed) {
+    return jsonError("Too many requests.", 429, rate.retryAfter);
+  }
+
   const content = await getSiteContent();
   const catalogFile = content.es.catalog.file || "/catalogo-equip-contract.pdf";
-  const normalizedFile = catalogFile.startsWith("/") ? catalogFile : `/${catalogFile}`;
-  const publicPath = path.join(process.cwd(), "public", normalizedFile);
-  const visitorId = request.nextUrl.searchParams.get("visitorId") || "unknown";
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    undefined;
+  const normalizedFile = normalizeCatalogFile(catalogFile);
+
+  if (!normalizedFile) {
+    return jsonError("Invalid catalog path.", 400);
+  }
+
+  const publicRoot = path.join(process.cwd(), "public");
+  const publicPath = path.join(publicRoot, normalizedFile);
+  const resolvedPath = path.resolve(publicPath);
+  const visitorId = sanitizeVisitorId(request.nextUrl.searchParams.get("visitorId"));
+
+  if (!resolvedPath.startsWith(path.resolve(publicRoot) + path.sep)) {
+    return jsonError("Invalid catalog path.", 400);
+  }
 
   await addAnalyticsEvent({
     type: "catalog_download",
-    path: normalizedFile,
+    path: `/${normalizedFile}`,
     visitorId,
-    referrer: request.headers.get("referer") || undefined,
-    userAgent: request.headers.get("user-agent") || undefined,
+    referrer: sanitizeUrl(request.headers.get("referer")),
+    userAgent: sanitizeText(request.headers.get("user-agent"), 240) || undefined,
     ip,
   });
 
@@ -30,5 +45,20 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Catalogo no disponible todavia.", { status: 404 });
   }
 
-  return NextResponse.redirect(new URL(normalizedFile, request.url));
+  return NextResponse.redirect(new URL(`/${normalizedFile}`, request.url));
+}
+
+function normalizeCatalogFile(catalogFile: string) {
+  const normalizedFile = catalogFile.startsWith("/") ? catalogFile.slice(1) : catalogFile;
+
+  if (
+    normalizedFile.includes("..") ||
+    normalizedFile.includes("\\") ||
+    normalizedFile.startsWith("/") ||
+    !/^[a-zA-Z0-9/_ .-]+\.pdf$/.test(normalizedFile)
+  ) {
+    return null;
+  }
+
+  return normalizedFile;
 }

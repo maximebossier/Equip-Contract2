@@ -8,6 +8,8 @@ import { SectionIntro } from "./SectionIntro";
 export function Contact() {
   const { t } = useLanguage();
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const address = t.contact.address;
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
   const mapTitle =
@@ -86,19 +88,40 @@ export function Contact() {
 
         <form
           className="premium-card rounded-md p-4 md:p-8"
-          onSubmit={(event) => {
+          onSubmit={async (event) => {
             event.preventDefault();
+            setSubmitting(true);
+            setSent(false);
+            setError("");
+
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              body: new FormData(event.currentTarget),
+            }).catch(() => null);
+
+            setSubmitting(false);
+
+            if (!response?.ok) {
+              setError("No se ha podido enviar. Revisa los campos e inténtalo de nuevo.");
+              return;
+            }
+
+            event.currentTarget.reset();
             setSent(true);
           }}
         >
+          <label className="hidden" aria-hidden="true">
+            Website
+            <input name="website" tabIndex={-1} autoComplete="off" />
+          </label>
           <div className="grid gap-3.5 md:grid-cols-2 md:gap-5">
             <label htmlFor="contact-name" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.name}
-              <input id="contact-name" name="name" autoComplete="name" className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
+              <input id="contact-name" name="name" autoComplete="name" required maxLength={120} className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
             </label>
             <label htmlFor="contact-company" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.company}
-              <input id="contact-company" name="company" autoComplete="organization" className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
+              <input id="contact-company" name="company" autoComplete="organization" required maxLength={140} className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
             </label>
             <label htmlFor="contact-email" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.email}
@@ -107,6 +130,8 @@ export function Contact() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                required
+                maxLength={160}
                 className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30"
               />
             </label>
@@ -117,16 +142,18 @@ export function Contact() {
                 name="phone"
                 type="tel"
                 autoComplete="tel"
+                maxLength={40}
+                pattern="^[+()0-9\s.-]{6,40}$"
                 className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30"
               />
             </label>
             <label htmlFor="contact-country" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.country}
-              <input id="contact-country" name="country" autoComplete="country-name" className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
+              <input id="contact-country" name="country" autoComplete="country-name" maxLength={80} className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
             </label>
             <label htmlFor="contact-quantity" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.quantity}
-              <input id="contact-quantity" name="quantity" inputMode="numeric" className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
+              <input id="contact-quantity" name="quantity" inputMode="numeric" maxLength={40} className="rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30" />
             </label>
             <label htmlFor="contact-date" className="grid gap-2 text-sm font-semibold text-stone/82">
               {t.contact.fields.date}
@@ -147,6 +174,8 @@ export function Contact() {
               id="contact-message"
               name="message"
               rows={6}
+              required
+              maxLength={2200}
               className="resize-none rounded-md border border-stone/16 bg-graphite/70 px-4 py-3 text-stone outline-none transition hover:border-stone/28 focus:border-fern focus:bg-graphite focus:ring-2 focus:ring-fern/30"
             />
           </label>
@@ -171,10 +200,16 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="premium-button mt-6 w-full rounded-md bg-fern px-6 py-4 text-sm font-bold text-graphite outline-none hover:bg-[#a9dd52] focus-visible:ring-2 focus-visible:ring-fern/80 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon md:w-auto"
+            disabled={submitting}
+            className="premium-button mt-6 w-full rounded-md bg-fern px-6 py-4 text-sm font-bold text-graphite outline-none hover:bg-[#a9dd52] focus-visible:ring-2 focus-visible:ring-fern/80 focus-visible:ring-offset-2 focus-visible:ring-offset-carbon disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
           >
             {t.contact.fields.submit}
           </button>
+          {error && (
+            <div className="mt-5 rounded-md border border-red-400/22 bg-red-400/8 p-5 text-sm leading-7 text-red-100/80">
+              {error}
+            </div>
+          )}
           {sent && (
             <div className="mt-5 rounded-md border border-fern/22 bg-fern/8 p-5 text-sm leading-7 text-stone/76">
               <p className="font-semibold text-[#f8f8f4]">{t.contact.sentMessage.title}</p>

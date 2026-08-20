@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { AnalyticsEvent } from "@/lib/analytics";
 import type { SiteContent } from "@/lib/siteContent.shared";
 
@@ -375,9 +376,9 @@ export default function AdminPage() {
               Edita textos, etiquetas, proyectos, servicios, contacto y contenido por idioma sin tocar código.
             </p>
           </div>
-          <a href="/" className="rounded-md border border-stone/20 px-4 py-3 text-sm font-bold transition hover:border-fern hover:text-fern">
+          <Link href="/" className="rounded-md border border-stone/20 px-4 py-3 text-sm font-bold transition hover:border-fern hover:text-fern">
             Ver web
-          </a>
+          </Link>
         </header>
 
         {!content ? (

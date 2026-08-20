@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { MotionArticle, MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
@@ -33,28 +34,31 @@ export function About() {
 
       <div className="section-shell mt-9 grid gap-3 md:mt-20 md:grid-cols-12 md:gap-4">
         <div className="relative h-[220px] overflow-hidden rounded-md border border-stone/10 shadow-premium min-[390px]:h-[250px] md:col-span-7 md:h-[520px]">
-          <img
+          <Image
             src="/assets/catalog/equip-about-hospitality.webp"
             alt="Espacio hospitality con mobiliario contract fabricado para uso profesional"
-            loading="lazy"
+            fill
+            sizes="(min-width: 768px) 58vw, 100vw"
             className="h-full w-full object-cover brightness-[0.82] contrast-110 saturate-[0.82]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/82 via-transparent to-transparent" />
         </div>
         <div className="grid gap-4 md:col-span-5">
           <div className="relative h-[180px] overflow-hidden rounded-md border border-stone/10 shadow-premium min-[390px]:h-[200px] md:h-[252px]">
-            <img
+            <Image
               src="/assets/catalog/about-hospitality-furniture-crop.jpg"
               alt="Interior hospitality contemporáneo con mesas y sillas contract"
-              loading="lazy"
+              fill
+              sizes="(min-width: 768px) 42vw, 100vw"
               className="h-full w-full object-cover object-center brightness-[0.78] contrast-110 saturate-[0.78]"
             />
           </div>
           <div className="relative h-[180px] overflow-hidden rounded-md border border-stone/10 shadow-premium min-[390px]:h-[200px] md:h-[252px]">
-            <img
+            <Image
               src="/assets/catalog/project-restaurante.webp"
               alt="Espacio restaurante con mobiliario contract integrado de forma discreta"
-              loading="lazy"
+              fill
+              sizes="(min-width: 768px) 42vw, 100vw"
               className="h-full w-full object-cover brightness-[0.78] contrast-110 saturate-[0.78]"
             />
           </div>
