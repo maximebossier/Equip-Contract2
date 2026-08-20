@@ -130,7 +130,7 @@ export function verifyAdminRequest(request: NextRequest) {
   const configuredPassword = process.env.ADMIN_PASSWORD;
   const providedPassword = request.headers.get("x-admin-password") || "";
 
-  if (!configuredPassword || configuredPassword.length < 16 || configuredPassword === "change-this-private-password") {
+  if (!configuredPassword || configuredPassword.length < 12 || configuredPassword === "change-this-private-password") {
     return { ok: false, status: 503, message: "Admin access is not configured." };
   }
 
