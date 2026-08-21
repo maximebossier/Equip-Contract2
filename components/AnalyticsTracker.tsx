@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useCookieConsent } from "./CookieConsent";
 
 function getVisitorId() {
   const key = "equipcontract_visitor_id";
@@ -38,7 +39,11 @@ function track(type: "page_view" | "section_view", section?: string) {
 }
 
 export function AnalyticsTracker() {
+  const { consent, hasChoice } = useCookieConsent();
+
   useEffect(() => {
+    if (!hasChoice || !consent.analytics) return;
+
     track("page_view");
 
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section[id], footer"));
@@ -61,7 +66,7 @@ export function AnalyticsTracker() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [consent.analytics, hasChoice]);
 
   return null;
 }

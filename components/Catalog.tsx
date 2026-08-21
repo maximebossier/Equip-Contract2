@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
+import { useCookieConsent } from "./CookieConsent";
 import { MotionSection } from "./Motion";
 
 function getVisitorId() {
@@ -16,6 +17,7 @@ function getVisitorId() {
 
 export function Catalog() {
   const { t } = useLanguage();
+  const { consent, hasChoice } = useCookieConsent();
 
   return (
     <MotionSection
@@ -36,7 +38,12 @@ export function Catalog() {
           <a
             href="/api/catalog/download"
             onClick={(event) => {
-              event.currentTarget.href = `/api/catalog/download?visitorId=${encodeURIComponent(getVisitorId())}`;
+              if (hasChoice && consent.analytics) {
+                event.currentTarget.href = `/api/catalog/download?analytics=1&visitorId=${encodeURIComponent(getVisitorId())}`;
+                return;
+              }
+
+              event.currentTarget.href = "/api/catalog/download";
             }}
             className="premium-button inline-flex items-center justify-center rounded-md bg-fern px-5 py-3.5 text-sm font-bold text-graphite hover:bg-[#a9dd52] md:px-6 md:py-4"
           >

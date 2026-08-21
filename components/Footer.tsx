@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { useCookieConsent } from "./CookieConsent";
 import { useLanguage } from "./LanguageProvider";
 
 export function Footer() {
   const { t } = useLanguage();
+  const { openPreferences } = useCookieConsent();
 
   return (
     <footer className="border-t border-stone/10 bg-[#090c0a] py-14 md:py-20">
@@ -32,6 +34,13 @@ export function Footer() {
         <div className="mt-8 flex flex-col gap-4 text-sm text-stone/45 md:flex-row md:items-center md:justify-between">
           <span>{t.footer.copyright}</span>
           <div className="flex flex-wrap gap-5">
+            <button
+              type="button"
+              onClick={openPreferences}
+              className="premium-link rounded-sm text-left transition hover:text-fern focus-visible:text-fern"
+            >
+              Configuración de Cookies
+            </button>
             <a href="/admin" className="premium-link rounded-sm transition hover:text-fern focus-visible:text-fern">
               {t.footer.privateAccess}
             </a>

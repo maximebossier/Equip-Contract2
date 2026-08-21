@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Equip Contract">
+  <rect width="128" height="128" rx="18" fill="#0b0e0c"/>
+  <path d="M28 27h38v12H42v18h21v12H42v20h25v12H28V27Z" fill="#f8f8f4"/>
+  <path d="M72 35c14 0 25 8 29 20l-13 4c-2-7-8-11-16-11-12 0-20 9-20 23s8 23 20 23c8 0 14-4 17-12l13 4c-5 13-16 21-30 21-21 0-35-15-35-36s14-36 35-36Z" fill="#95c83d" opacity=".92"/>
+</svg>

@@ -3,6 +3,7 @@ import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { Catalog } from "@/components/Catalog";
 import { Confidentiality } from "@/components/Confidentiality";
 import { Contact } from "@/components/Contact";
+import { CookieConsentProvider } from "@/components/CookieConsent";
 import { CustomSections } from "@/components/CustomSections";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -105,27 +106,29 @@ export default async function Home() {
 
   return (
     <LanguageProvider initialContent={content}>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <AnalyticsTracker />
-      <Header />
-      <main id="contenido">
+      <CookieConsentProvider>
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <AnalyticsTracker />
+        <Header />
+        <main id="contenido">
           <Hero />
           <About />
           <Trust />
           <Manufacturing />
           <Process />
           <Services />
-        <Projects />
-        <Confidentiality />
-        <CustomSections />
-        <Catalog />
-        <Contact />
-      </main>
-      <Footer />
+          <Projects />
+          <Confidentiality />
+          <CustomSections />
+          <Catalog />
+          <Contact />
+        </main>
+        <Footer />
+      </CookieConsentProvider>
     </LanguageProvider>
   );
 }

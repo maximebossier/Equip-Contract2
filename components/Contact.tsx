@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useCookieConsent } from "./CookieConsent";
 import { useLanguage } from "./LanguageProvider";
 import { MotionSection } from "./Motion";
 import { SectionIntro } from "./SectionIntro";
 
 export function Contact() {
   const { t } = useLanguage();
+  const { consent, openPreferences } = useCookieConsent();
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -67,14 +69,35 @@ export function Contact() {
               <span className="text-sm font-semibold leading-5 text-[#f8f8f4]">Equip Contract · {t.contact.location}</span>
               <span className="h-2.5 w-2.5 rounded-full bg-fern" />
             </div>
-            <iframe
-              title={mapTitle}
-              src={mapSrc}
-              className="h-56 w-full border-0 bg-[#111411] brightness-[0.78] contrast-[1.1] hue-rotate-[58deg] invert-[0.88] saturate-[0.42] sepia-[0.18] min-[390px]:h-64 md:h-80"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            {consent.functional ? (
+              <iframe
+                title={mapTitle}
+                src={mapSrc}
+                className="h-56 w-full border-0 bg-[#111411] brightness-[0.78] contrast-[1.1] hue-rotate-[58deg] invert-[0.88] saturate-[0.42] sepia-[0.18] min-[390px]:h-64 md:h-80"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            ) : (
+              <div className="grid h-56 place-items-center bg-[radial-gradient(circle_at_70%_20%,rgba(149,200,61,0.18),transparent_16rem),linear-gradient(135deg,#10130f,#0b0e0c)] p-6 text-center min-[390px]:h-64 md:h-80">
+                <div className="max-w-sm">
+                  <p className="eyebrow">Mapa bloqueado</p>
+                  <p className="mt-3 text-lg font-semibold leading-7 text-[#f8f8f4]">
+                    Google Maps se carga solo con cookies funcionales.
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-stone/62">
+                    Puedes activar esta categoría para ver el mapa interactivo sin cambiar el resto de preferencias.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={openPreferences}
+                    className="premium-button mt-5 rounded-md bg-fern px-5 py-3 text-sm font-bold text-graphite"
+                  >
+                    Configurar cookies
+                  </button>
+                </div>
+              </div>
+            )}
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
               target="_blank"

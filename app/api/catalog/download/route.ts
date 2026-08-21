@@ -24,20 +24,23 @@ export async function GET(request: NextRequest) {
   const publicRoot = path.join(process.cwd(), "public");
   const publicPath = path.join(publicRoot, normalizedFile);
   const resolvedPath = path.resolve(publicPath);
+  const canTrackDownload = request.nextUrl.searchParams.get("analytics") === "1";
   const visitorId = sanitizeVisitorId(request.nextUrl.searchParams.get("visitorId"));
 
   if (!resolvedPath.startsWith(path.resolve(publicRoot) + path.sep)) {
     return jsonError("Invalid catalog path.", 400);
   }
 
-  await addAnalyticsEvent({
-    type: "catalog_download",
-    path: `/${normalizedFile}`,
-    visitorId,
-    referrer: sanitizeUrl(request.headers.get("referer")),
-    userAgent: sanitizeText(request.headers.get("user-agent"), 240) || undefined,
-    ip,
-  });
+  if (canTrackDownload) {
+    await addAnalyticsEvent({
+      type: "catalog_download",
+      path: `/${normalizedFile}`,
+      visitorId,
+      referrer: sanitizeUrl(request.headers.get("referer")),
+      userAgent: sanitizeText(request.headers.get("user-agent"), 240) || undefined,
+      ip,
+    });
+  }
 
   try {
     await fs.access(publicPath);

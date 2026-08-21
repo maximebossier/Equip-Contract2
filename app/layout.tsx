@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://equipcontract.com";
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: "Equip Contract",
   title: {
     default: "Equip Contract | Fabricación contract B2B en Barcelona",
     template: "%s | Equip Contract",
@@ -13,6 +15,35 @@ export const metadata: Metadata = {
     "Fabricación industrial premium de mobiliario contract en Barcelona para distribuidores, estudios, empresas contract y marcas B2B. Producción OEM, white-label y confidencial.",
   alternates: {
     canonical: "/",
+    languages: {
+      es: "/",
+      en: "/?lang=en",
+    },
+  },
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+  },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
+  manifest: "/manifest.webmanifest",
+  category: "manufacturing",
+  keywords: [
+    "fabricación contract Barcelona",
+    "mobiliario contract OEM",
+    "white-label furniture manufacturing",
+    "fabricante mobiliario horeca",
+    "Equip Contract",
+  ],
+  authors: [{ name: "Equip Contract" }],
+  creator: "Equip Contract",
+  publisher: "Equip Contract",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
   },
   openGraph: {
     title: "Equip Contract | Fabricación contract B2B en Barcelona",
@@ -21,7 +52,16 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Equip Contract",
     locale: "es_ES",
+    alternateLocale: ["en_GB"],
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Equip Contract - fabricación contract B2B en Barcelona",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -32,6 +72,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

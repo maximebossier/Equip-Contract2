@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+      alternates: {
+        languages: {
+          es: "https://equipcontract.com",
+          en: "https://equipcontract.com?lang=en",
+        },
+      },
     },
   ];
 }
